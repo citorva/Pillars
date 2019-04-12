@@ -141,7 +141,13 @@ function pillars.register_pillar(name, def)
 
 	minetest.register_craft({
 		output = "pillars:" .. name .. " 7",
-		recipe = def.recipe
+		recipe = {{def.basenode, def.basenode, def.basenode},
+			  {"",def.basenode,""},
+			  {def.basenode, def.basenode, def.basenode}}
+	})
+	minetest.register_craft({
+		output = def.basenode .. " 1",
+		recipe = {{"pillars:" .. name}}
 	})
 end
 
@@ -202,11 +208,7 @@ for k, v in pairs(default_lib_nodes) do
 	    textures = {"default_" .. texture_name .. ".png"},
 	    sounds = sound,
 	    groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3},
-	    recipe = {
-		    {"default:" .. v[1], "default:" .. v[1], "default:" .. v[1]},
-		    {"", "default:" .. v[1], ""},
-		    {"default:" .. v[1], "default:" .. v[1], "default:" .. v[1]},
-	    }
+	    basenode = "default:" .. v[1]
     })
 end
 
