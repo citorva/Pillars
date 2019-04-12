@@ -183,8 +183,6 @@ local default_lib_nodes = {
     {"pine_wood", "Pine Wood Pillar", sound = default.node_sound_wood_defaults()},
     {"acacia_wood", "Acacia Wood Pillar", sound = default.node_sound_wood_defaults()},
     {"aspen_wood", "Aspen Wood Pillar", sound = default.node_sound_wood_defaults()},
-    
-    {"glass", "Glass Pillar", sound = default.node_sound_glass_defaults() }
 }
 
 for k, v in pairs(default_lib_nodes) do
